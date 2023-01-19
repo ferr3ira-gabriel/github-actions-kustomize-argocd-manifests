@@ -15,8 +15,8 @@ inputs:
   gh_access_token:
     description: 'The access token of GitOps repository'
     required: true
-  gcp_project_id_prod:
-    description: 'The GCP project ID'
+  registry:
+    description: 'The registry name'
     required: true
   app_id:
     description: 'The App ID'
@@ -32,6 +32,6 @@ runs:
     - ${{ inputs.gitops-repo-name }}
     - ${{ inputs.gitops-repo-url }}
     - ${{ inputs.gh_access_token }}
-    - ${{ inputs.gcp_project_id_prod }}
+    - ${{ inputs.registry }}
     - ${{ inputs.app_id }}
     - ${{ inputs.github_actor }}
