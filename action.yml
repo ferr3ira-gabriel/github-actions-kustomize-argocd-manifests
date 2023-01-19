@@ -1,0 +1,37 @@
+name: GitHub actions kustomize argocd manifests
+author: Gabriel Ferreira <gabriel.oliveira@platformbuilders.io>
+description: GitHub action used kustomize applications manifests
+branding:
+  icon: feather
+  color: gray-dark
+
+inputs:
+  gitops-repo-name:
+    description: 'The name of GitOps repository'
+    required: true
+  gitops-repo-url:
+    description: 'The URL of GitOps repository'
+    required: true
+  gh_access_token:
+    description: 'The access token of GitOps repository'
+    required: true
+  gcp_project_id_prod:
+    description: 'The GCP project ID'
+    required: true
+  app_id:
+    description: 'The App ID'
+    required: true
+  github_actor:
+    description: 'The github commit actor ID'
+    required: true
+
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.gitops-repo-name }}
+    - ${{ inputs.gitops-repo-url }}
+    - ${{ inputs.gh_access_token }}
+    - ${{ inputs.gcp_project_id_prod }}
+    - ${{ inputs.app_id }}
+    - ${{ inputs.github_actor }}
