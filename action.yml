@@ -1,37 +1,39 @@
 name: GitHub actions kustomize argocd manifests
-author: Gabriel Ferreira <gabriel.oliveira@platformbuilders.io>
+author: Gabriel Ferreira
 description: GitHub action used kustomize applications manifests
 branding:
   icon: feather
   color: gray-dark
 
 inputs:
-  gitops-repo-name:
-    description: 'The name of GitOps repository'
+  app-name:
+    description: 'The app name'
     required: true
-  gitops-repo-url:
-    description: 'The URL of GitOps repository'
+  app-registry:
+    description: 'The Docker image registry name'
     required: true
-  gh_access_token:
-    description: 'The access token of GitOps repository'
-    required: true
-  registry:
-    description: 'The registry name'
-    required: true
-  app_id:
-    description: 'The App ID'
-    required: true
-  github_actor:
+  github-actor:
     description: 'The github commit actor ID'
+    required: true
+  github-deploy-ssh-key:
+    description: 'The github deploy SSH key to clone K8S manifests'
+    required: true
+  github-token:
+    description: 'The github token to create PR'
+    required: true
+  k8s-manifest-repo-name:
+    description: 'The name of K8S manifests repository'
+    required: true
+  k8s-manifest-repo-ssh:
+    description: 'The SSH of K8S manifests repository'
     required: true
 
 runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
-    - ${{ inputs.gitops-repo-name }}
-    - ${{ inputs.gitops-repo-url }}
-    - ${{ inputs.gh_access_token }}
-    - ${{ inputs.registry }}
-    - ${{ inputs.app_id }}
-    - ${{ inputs.github_actor }}
+    - ${{ inputs.app-name }}
+    - ${{ inputs.app-registry }}
+    - ${{ inputs.github-actor }}
+    - ${{ inputs.k8s-manifest-repo-name }}
+    - ${{ inputs.k8s-manifest-repo-ssh }}
