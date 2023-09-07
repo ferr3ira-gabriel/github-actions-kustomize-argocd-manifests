@@ -6,7 +6,7 @@ eval `ssh-agent -s`
 echo "$4" > ssh-key
 chmod 400 ssh-key
 ssh-add ssh-key
-
+ssh-keyscan -t rsa github.com >> ~/.ssh/known_hosts
 
 if [[ "$GITOPS_BRANCH" == "develop" ]]; then
     printf "\033[0;36m================================================================================================================> Condition 1: Develop environment \033[0m\n"
