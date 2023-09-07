@@ -35,5 +35,7 @@ runs:
     - ${{ inputs.app-name }}
     - ${{ inputs.app-registry }}
     - ${{ inputs.github-actor }}
+    - ${{ inputs.github-deploy-ssh-key }}
+    - ${{ inputs.github-token }}
     - ${{ inputs.k8s-manifest-repo-name }}
     - ${{ inputs.k8s-manifest-repo-ssh }}
