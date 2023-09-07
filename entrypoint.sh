@@ -1,9 +1,10 @@
 #!/bin/bash
 
 printf "\033[0;36m================================================================================================================> Condition 1: Develop environment \033[0m\n"
-printf "\033[0;32m============> Adding SSH deploy key"
+printf "\033[0;32m============> Adding SSH deploy key \033[0m\n"
 eval "$(ssh-agent -s)"
-ssh-add - <<< '$4'
+echo "$4" > ssh-key
+ssh-add ssh-key
 
 
 if [[ "$GITOPS_BRANCH" == "develop" ]]; then
