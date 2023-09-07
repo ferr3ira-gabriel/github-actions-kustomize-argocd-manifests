@@ -4,6 +4,7 @@ printf "\033[0;36m==============================================================
 printf "\033[0;32m============> Adding SSH deploy key \033[0m\n"
 eval "$(ssh-agent -s)"
 echo "$4" > ssh-key
+chmod 400 ssh-key
 ssh-add ssh-key
 
 
