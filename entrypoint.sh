@@ -1,6 +1,5 @@
 #!/bin/bash
 
-printf "\033[0;36m================================================================================================================> Condition 1: Develop environment \033[0m\n"
 printf "\033[0;32m============> Adding SSH deploy key \033[0m\n"
 git config --global core.sshCommand "ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no"
 eval `ssh-agent -s`
