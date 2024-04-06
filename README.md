@@ -22,7 +22,7 @@ There are no outputs for this action
 
 ```yaml
       - name: Kustomize step
-        uses: GFerr3ira/github-actions-kustomize-argocd-manifests@master
+        uses: ferr3ira-gabriel/github-actions-kustomize-argocd-manifests@master
         with:
           app-name: '<The app name>'
           app-registry: '<The Docker image registry name>'
@@ -39,7 +39,7 @@ If you wants to update or make changes in module code you should use the **devel
 ```yaml
       # Example using this actions
       - name: Kustomize step
-        uses: GFerr3ira/github-actions-kustomize-argocd-manifests@develop
+        uses: ferr3ira-gabriel/github-actions-kustomize-argocd-manifests@develop
         with:
           app-name: '<The app name>'
           app-registry: '<The Docker image registry name>'
